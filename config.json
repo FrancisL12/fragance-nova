@@ -1,0 +1,13 @@
+{
+  "googleSheetUrl": "https://script.google.com/macros/s/AKfycbxWs7EnyCvZ6b3LnDoC1vl7Fq3Bl_UTSyZ_ntdQ0CH3IdkZQDFZKUssvuIPqv4ahU4/exec",
+  "logoUrl": "https://i.postimg.cc/50nm5WfF/foto-lord-aroma.png",
+  "whatsappLink": "https://chat.whatsapp.com/LjwtU5fO5d8Aec1F9Gjc2W",
+  "clientName": "Lord Aroma",
+  "theme": {
+    "primaryColor": "#FFD700",
+    "secondaryColor": "#FFA500",
+    "backgroundColor": "#1a1a1a",
+    "textColor": "#ffffff",
+    "buttonTextColor": "#000000"
+  }
+}
