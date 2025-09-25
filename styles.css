@@ -1,0 +1,598 @@
+/*
+ * Copyright (c) 2024 Lord Aroma - Francisco Leite.
+ * Todos os direitos reservados. A reprodução, distribuição ou transmissão
+ * não autorizada deste código e seus dados associados é estritamente proibida.
+*/
+
+/* Variáveis de Tema - Ponto central de customização */
+:root {
+    --primary-color: #FFD700;
+    --secondary-color: #FFA500;
+    --background-color: #1a1a1a;
+    --text-color: #ffffff;
+    --button-text-color: #000000;
+    --dark-bg: #000000;
+    --light-gray: #cccccc;
+    --medium-gray: #333333;
+    --dark-gray: #666666;
+    --whatsapp-start: #25D366;
+    --whatsapp-end: #128C7E;
+}
+
+
+/* Reset e Base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(135deg, var(--dark-bg) 0%, var(--background-color) 100%);
+    color: var(--text-color);
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Screens */
+.screen {
+    display: none;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.screen.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Welcome Screen */
+.logo {
+    text-align: center;
+}
+
+.logo-image {
+    width: 140px;
+    height: 140px;
+    margin-bottom: 0.5rem;
+    border-radius: 50%; /* Garante que a logo seja circular se for quadrada */
+    object-fit: cover;
+}
+
+.logo h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem;
+    font-weight: 700;
+    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-align: center;
+    margin-bottom: 0.5rem;
+}
+
+.logo .subtitle {
+    text-align: center;
+    color: var(--light-gray);
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+}
+
+.welcome-content h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+}
+
+.welcome-content p {
+    font-size: 0.8rem;
+    color: var(--light-gray);
+    margin-bottom: 1.8rem;
+    line-height: 1.6;
+    max-width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Buttons */
+.btn-primary, .btn-secondary, .btn-whatsapp {
+    padding: 15px 30px;
+    border: none;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+}
+
+#start-btn {
+    padding: 17px 100px;
+    font-size: 1.2rem;
+}
+
+
+.btn-primary {
+    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+    color: var(--button-text-color);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(255, 215, 0, 0.3);
+}
+
+.btn-secondary {
+    background: transparent;
+    border: 2px solid var(--primary-color) !important;
+    color: var(--primary-color);
+}
+
+.btn-secondary:hover {
+    background: var(--primary-color);
+    color: var(--button-text-color);
+}
+
+.btn-whatsapp {
+    background: linear-gradient(45deg, var(--whatsapp-start), var(--whatsapp-end));
+    color: white;
+    font-size: 1.2rem;
+    margin-top: 1rem;
+}
+
+.btn-whatsapp:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3);
+}
+
+/* Pulse Animation */
+.pulse {
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+/* Progress Bar */
+.progress-bar {
+    width: 100%;
+    height: 6px;
+    background: var(--medium-gray);
+    border-radius: 3px;
+    margin-bottom: 2rem;
+    overflow: hidden;
+}
+
+.progress {
+    height: 100%;
+    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+    border-radius: 3px;
+    transition: width 0.5s ease;
+}
+
+/* Form Styles */
+.form-group {
+    margin-bottom: 2rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--primary-color);
+    font-weight: 500;
+}
+
+.form-group input[type="text"] {
+    width: 100%;
+    padding: 12px 16px;
+    border: 2px solid var(--medium-gray);
+    border-radius: 8px;
+    background: var(--background-color);
+    color: var(--text-color);
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input[type="text"]:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+/* Photo Upload */
+.photo-upload {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.photo-upload input[type="file"] {
+    display: none;
+}
+
+.photo-preview {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 2px solid var(--primary-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    overflow: hidden;
+    background: var(--background-color);
+}
+
+.photo-placeholder {
+    font-size: 2rem;
+    color: var(--dark-gray);
+}
+
+.photo-preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Radio Groups */
+.radio-group {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.radio-option {
+    display: flex;
+    align-items: center;
+    padding: 12px 16px;
+    border: 2px solid var(--medium-gray);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.radio-option:hover {
+    border-color: var(--primary-color);
+}
+
+.radio-option input[type="radio"] {
+    margin-right: 12px;
+    accent-color: var(--primary-color);
+}
+
+.radio-option span {
+    font-weight: 500;
+}
+
+.radio-option small {
+    display: block;
+    color: var(--light-gray);
+    font-size: 0.9rem;
+    margin-top: 0.25rem;
+}
+
+/* Quiz Styles */
+.quiz-content h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    color: var(--primary-color);
+}
+
+.options-list-simple {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem; 
+    width: 100%;
+    max-width: 500px; 
+    margin: 2rem auto 0;
+}
+
+.option-button-simple {
+    background-color: transparent;
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+    padding: 16px 20px;
+    font-size: 1rem;
+    font-weight: 500;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+    width: 100%;
+}
+
+.option-button-simple:hover {
+    background-color: var(--primary-color);
+    color: var(--button-text-color);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(255, 215, 0, 0.2);
+}
+
+/* Loading Screen */
+.loading-animation {
+    text-align: center;
+}
+
+.perfume-bottle {
+    font-size: 4rem;
+    margin-bottom: 2rem;
+    animation: bounce 1s infinite;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-20px); }
+    60% { transform: translateY(-10px); }
+}
+
+.loading-text h2 {
+    font-family: 'Playfair Display', serif;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.dots span {
+    animation: dots 1.4s infinite;
+    animation-fill-mode: both;
+    font-size: 2rem;
+    color: var(--primary-color);
+}
+
+.dots span:nth-child(2) { animation-delay: 0.2s; }
+.dots span:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes dots {
+    0%, 80%, 100% { opacity: 0; }
+    40% { opacity: 1; }
+}
+
+/* Results Screen */
+.result-content {
+    text-align: center;
+    background-color: var(--background-color); /* Adicionado para o html2canvas */
+}
+
+.user-info {
+    margin-bottom: 1rem;
+}
+
+.user-photo-circle {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 4px solid var(--primary-color);
+    margin: 0 auto 1rem;
+    overflow: hidden;
+}
+
+.user-photo-circle img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.user-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.archetype-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 0.1rem;
+}
+
+.archetype-description {
+    font-size: 0.8rem;
+    line-height: 1.6;
+    color: var(--light-gray);
+    max-width: 350px;
+    margin: 0 auto;
+}
+
+.additional-info {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    margin-bottom: 1.5rem; 
+}
+
+.info-section {
+    background: var(--background-color);
+    padding: 1.5rem;
+    border-radius: 12px;
+    border: 1px solid var(--medium-gray);
+    text-align: center;
+}
+
+.info-section .curiosity-title {
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+}
+
+.info-section p {
+    color: var(--light-gray);
+    line-height: 1.6;
+}
+
+.curiosity-item {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+.curiosity-item:last-child {
+    margin-bottom: 0;
+}
+
+.curiosity-item h4 {
+    color: var(--primary-color);
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+
+.perfume-recommendations {
+    margin-bottom: 2rem;
+}
+
+.perfume-recommendations h3 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+.perfumes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 0.5rem;
+}
+
+.perfume-card-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+.perfume-card {
+    background: var(--background-color);
+    border: 1px solid var(--medium-gray);
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-align: left;
+    transition: all 0.3s ease;
+}
+
+.perfume-card:hover {
+    border-color: var(--primary-color);
+    transform: translateY(-2px);
+}
+
+.perfume-card h4 {
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.perfume-card .brand {
+    color: var(--light-gray);
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+.perfume-card .notes {
+    color: #999999;
+    font-size: 0.85rem;
+    line-height: 1.4;
+}
+
+.action-buttons {
+    margin-top: 0rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    gap: 1rem; 
+}
+
+.cta-section {
+    width: 100%;
+    max-width: 600px; 
+    padding: 2rem;
+    background: var(--background-color);
+    border-radius: 12px;
+    border: 1px solid var(--medium-gray);
+    text-align: center; 
+}
+
+.cta-section::before {
+    content: '🚨🚨🚨'; 
+    display: block;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.cta-text {
+    color: var(--light-gray);
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+.credits-footer {
+    color: var(--primary-color);
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    text-align: center;
+    margin-top: 1.5rem; 
+    margin-bottom: 1rem;
+    opacity: 0.8;
+}
+
+/* Modal */
+.modal-overlay {
+    /* ... (estilos do modal permanecem os mesmos) ... */
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.modal-content {
+    background: var(--background-color);
+    border: 1px solid var(--medium-gray);
+    /* ... */
+}
+
+.modal-content h2 {
+    color: var(--primary-color);
+    /* ... */
+}
+
+/* Golden Divider */
+.golden-divider {
+    border: none;
+    height: 2px;
+    width: 244px;
+    margin: 0.1rem auto 1.5rem;
+    background: linear-gradient(90deg, transparent, var(--primary-color), transparent);
+    opacity: 0.8;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--background-color);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--secondary-color);
+}
+
+
+/* ... (Restante do CSS, incluindo media queries e outras regras, permanece o mesmo) ... */
